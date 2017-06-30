@@ -1,0 +1,65 @@
+<head>
+  <title>Fisdom</title>
+</head>
+<body>
+
+<!-- {{>whyFisdom}}  
+{{> api}}-->
+</body>
+<template name="ApplicationLayout">
+	{{> yield "navbar"}}
+	{{> yield "main" }}
+</template>
+
+
+<template name="home">
+{{#if currentUser }} 
+{{> home1 }}
+{{else}}
+{{>home0 }} <!--  path: imports/ui/home1.html -->
+{{/if}}
+</template>
+
+
+<template name="home0">
+{{>toggle}}
+</template>
+
+<template name="main">
+{{>header}}
+<hr/>
+{{> yield }}
+<p></p>
+<p>Developed By Sajeev Mahajan</p>
+</template>
+
+<template name="api">
+{{#each Api}}
+		
+			<div class="container">
+				<div class="thumbnail" id="{{_id}}" >
+					<p>Scode : {{scode}}</p>
+					<p>Date  :{{date}}</p>
+					<p>Nav   :{{nav}}</p>
+					<a href="#"><button class="js-del-btn btn btn-success hello" id="{{ scode }}">EXPLORE</button></a>
+					<div id="{{scode}}1" class="apisay" >
+					<p>Name : {{name}}</p>
+					<p>ISIN GROWTH : {{growth}}</p>					
+					</div>
+				</div>
+			</div>
+		
+	{{/each}}
+
+
+</template>
+<template name="example">
+
+<p>Data is {{data}}</p>
+</template>
+
+
+
+
+
+
